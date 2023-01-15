@@ -515,6 +515,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1639421893}
     m_Modifications:
     - target: {fileID: 556917551741352158, guid: 3b2f1afd4bfb9094c9540fbbab9958bd, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: b62344d6e7367bd4eba72b841ea4e1af, type: 2}
+    - target: {fileID: 556917551741352158, guid: 3b2f1afd4bfb9094c9540fbbab9958bd, type: 3}
       propertyPath: predTime
       value: 5
       objectReference: {fileID: 0}
@@ -540,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 984944200}
     - target: {fileID: 5029935245210133375, guid: 3b2f1afd4bfb9094c9540fbbab9958bd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5029935245210133375, guid: 3b2f1afd4bfb9094c9540fbbab9958bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -626,9 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3c1a6a597aec644b914f6a7a2e5bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDirection: {x: 0, y: 0, z: 0}
-  moveSpeed: 0
-  predTime: 0
+  stats: {fileID: 0}
   outputDirection: {fileID: 0}
   outputSpeed: {fileID: 0}
 --- !u!4 &697189658

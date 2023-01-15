@@ -7,9 +7,11 @@ using UnityEngine.UIElements;
 
 public class SpriteMovement : MonoBehaviour
 {
-    public Vector3 moveDirection;
-    public float moveSpeed;
-    public float predTime;
+    //public Vector3 stats.moveDirection;
+    //public float stats.moveSpeed;
+    //public float predTime;
+
+    public StatsSO stats;
 
     private Rigidbody2D rb;
     private GameObject predPoint;
@@ -34,7 +36,7 @@ public class SpriteMovement : MonoBehaviour
     public void ProgramStart()
     {
         isMoving = true;
-        vel = moveDirection * moveSpeed;
+        vel = stats.moveDirection * stats.moveSpeed;
         StartCoroutine(LinearMovementPrediction());
     }
 
@@ -62,6 +64,7 @@ public class SpriteMovement : MonoBehaviour
         if (isMoving)
         {
             StartCoroutine(Moving());
+            StartCoroutine(LinearMovementPrediction());
         }
     }
 
@@ -70,40 +73,40 @@ public class SpriteMovement : MonoBehaviour
     /// </summary>
     private void OnMouseDown()
     {
-        if(moveDirection.x > 0 && moveDirection.y > 0)
+        if(stats.moveDirection.x > 0 && stats.moveDirection.y > 0)
         {
             outputDirection.text = "NorthEast";
         }
-        else if(moveDirection.x < 0 && moveDirection.y > 0)
+        else if(stats.moveDirection.x < 0 && stats.moveDirection.y > 0)
         {
             outputDirection.text = "NorthWest";
         }
-        else if (moveDirection.x > 0 && moveDirection.y < 0)
+        else if (stats.moveDirection.x > 0 && stats.moveDirection.y < 0)
         {
             outputDirection.text = "SouthEast";
         }
-        else if (moveDirection.x < 0 && moveDirection.y < 0)
+        else if (stats.moveDirection.x < 0 && stats.moveDirection.y < 0)
         {
             outputDirection.text = "SouthWest";
         }
-        else if(moveDirection.x < 0)
+        else if(stats.moveDirection.x < 0)
         {
             outputDirection.text = "West";
         }
-        else if(moveDirection.x > 0)
+        else if(stats.moveDirection.x > 0)
         {
             outputDirection.text = "East";
         }
-        else if(moveDirection.y > 0)
+        else if(stats.moveDirection.y > 0)
         {
             outputDirection.text = "North";
         }
-        else if(moveDirection.y < 0)
+        else if(stats.moveDirection.y < 0)
         {
             outputDirection.text = "South";
         }
 
-        outputSpeed.text = moveSpeed.ToString();
+        outputSpeed.text = stats.moveSpeed.ToString();
     }
 
     /// <summary>
@@ -112,7 +115,7 @@ public class SpriteMovement : MonoBehaviour
     /// <returns></returns>
     private IEnumerator LinearMovementPrediction()
     {
-        Vector3 PredictedPosition = (Vector3)rb.position + vel * predTime; //takes current position and adds it the sprites current velocity * prediction time you set
+        Vector3 PredictedPosition = (Vector3)rb.position + vel * stats.predTime; //takes current position and adds it the sprites current velocity * prediction time you set
         yield return null;
         predPoint.transform.position = PredictedPosition;
         
@@ -124,8 +127,8 @@ public class SpriteMovement : MonoBehaviour
     /// <returns></returns>
     private IEnumerator Moving()
     {
-            rb.transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
-            vel = moveDirection * moveSpeed;
+            rb.transform.Translate(stats.moveDirection * stats.moveSpeed * Time.deltaTime);
+            vel = stats.moveDirection * stats.moveSpeed;
             yield return null;
     }
 }

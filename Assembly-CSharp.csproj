@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{52177DA1-51F9-6267-567A-B136A8C0BEE2}</ProjectGuid>
+    <ProjectGuid>{421C5016-5840-E771-B64E-4E0625DAABD4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\SpriteMovement.cs" />
     <Compile Include="Assets\Scripts\FizzBuzz.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\StatsSO.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
